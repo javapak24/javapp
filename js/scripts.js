@@ -1,4 +1,5 @@
 // height is in m
+let pokemonRepo = (function (){
 
 let pokemonList = [
     {
@@ -18,6 +19,22 @@ let pokemonList = [
     }
 ];
 
+function add(item){
+    pokemonList.push(item);
+}
+
+function getAll() {
+return pokemonList;
+}
+
+return {
+ add: add,
+ getAll: getAll
+};
+
+})();
+
+
 function poki(pokemon) {
 document.write(pokemon.name + ' ( height: ' + pokemon.height + ' ) ');
 if(pokemon.height > 1.0) {
@@ -28,3 +45,7 @@ else{
     document.write('<br>');
 }
 }
+
+pokemonRepo.getAll().forEach(poki);
+  
+
