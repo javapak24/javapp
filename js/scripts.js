@@ -27,19 +27,22 @@ function getAll() {
 return pokemonList;
 }
 
+
 function showDetails(pokemon) {
     console.log(pokemon.name);
 }
 
 function addListItem(pokemon) {
     let pokiList = document.querySelector(".pokemon-list");
-    let listPokemon = document.createElement("li");
+    let liPokemon = document.createElement("li");
     let pokemonButton = document.createElement("button");
     pokemonButton.innerText = pokemon.name;
     pokemonButton.classList.add("button-class");
-    pokemonButton.addEventListener('click', showDetails);
-    listPokemon.appendChild(pokemonButton);
-    pokiList.appendChild(listPokemon);
+    liPokemon.appendChild(pokemonButton);
+    pokiList.appendChild(liPokemon);
+    pokemonButton.addEventListener('click', () => {
+        showDetails(pokemon);
+    });
 }
 
 return {
