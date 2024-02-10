@@ -1,23 +1,8 @@
 // height is in m
 let pokemonRepo = (function (){
 
-let pokemonList = [
-    {
-        name: 'Charizard',
-        height: 1.7,
-        type: ['fire', 'flying']
-    },
-    {
-        name: 'Squirtle',
-        height: .5,
-        type: ['water']
-    },
-    {
-        name: 'Pikachu',
-        height: .4,
-        type: ['electric']
-    }
-];
+let pokemonList = [];
+let pokiLink = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 function add(item){
     pokemonList.push(item);
