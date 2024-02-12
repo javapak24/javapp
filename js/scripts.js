@@ -73,10 +73,10 @@ return {
 
 })();
 
-
-pokemonRepo.getAll().forEach(function (pokemon){
-    pokemonRepo.addListItem(pokemon);
-
+pokemonRepo.loadList().then(function() {
+    pokemonRepo.getAll().forEach(function (pokemon){
+        pokemonRepo.addListItem(pokemon);
+    });
 });
 
 
