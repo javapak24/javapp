@@ -8,6 +8,35 @@ function add(item){
     pokemonList.push(item);
 }
 
+function loadList() {
+    return fetch(pokiLink).then(function (response){
+        return response.json();
+    }).then(function (json){
+        json.results.forEach(function (item){
+            let pokemon = {
+                name : item.name,
+                detailsURL : item.url
+            };
+            add(pokemon);
+        });
+    }).catch(function(e){
+        console.error(e);
+    })
+}
+
+function loadDetails(item) {
+    let url = item.detailsURL;
+    return fetch(url).then(function (response){
+        return response.json();
+    }).then(function(details){
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.type = details.types;
+    }).catch(function(e){
+        console.error(e);
+    });
+}
+
 function getAll() {
 return pokemonList;
 }
@@ -30,10 +59,14 @@ function addListItem(pokemon) {
     });
 }
 
+
 return {
  add: add,
  getAll: getAll,
- addListItem: addListItem
+ addListItem: addListItem,
+ loadList: loadList,
+ loadDetails: loadDetails,
+ showDetails: showDetails
 };
 
 })();
