@@ -43,7 +43,9 @@ return pokemonList;
 
 
 function showDetails(pokemon) {
-    console.log(pokemon.name);
+    loadDetails(pokemon).then(function(){
+    console.log(pokemon);
+});
 }
 
 function addListItem(pokemon) {
