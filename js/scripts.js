@@ -2,19 +2,19 @@
 let pokemonRepo = (function (){
 
 let pokemonList = [];
-let pokiLink = 'https://pokeapi.co/api/v2/pokemon/?limit=15';
+let pokiLink = "https://pokeapi.co/api/v2/pokemon/?limit=15";
 
 let modalContainer = document.querySelector("#modal-container");
 modalContainer.classList.add("modal-container");
 
-function showModal (title, text, imageUrl) {
-    modalContainer.innerHTML='';
+function showModal (title, text, img) {
+    modalContainer.innerHTML=" ";
     let modal = document.createElement("div");
-    modal.classList.add('modal');
+    modal.classList.add("modal");
     
     let closeButton = document.createElement("button");
     closeButton.classList.add("modal-close");
-    closeButton.innerText= 'Close';
+    closeButton.innerText= "Close";
     closeButton.addEventListener('click', hideModal);
     
     let titleElement = document.createElement('h1');
@@ -22,21 +22,28 @@ function showModal (title, text, imageUrl) {
     
     let contentElement = document.createElement('p');
     contentElement.innerText = text;
+
+    let imageElement = document.createElement('img');
+    imageElement.setAttribute("src", img);
+    imageElement.setAttribute("width", "304");
+    imageElement.setAttribute("height", "228");
+    imageElement.setAttribute("alt", "pokemon portrait");
     
     modal.appendChild(closeButton);
     modal.appendChild(titleElement);
     modal.appendChild(contentElement);
+    modal.appendChild(imageElement);
     modalContainer.appendChild(modal);
     
-    modalContainer.classList.add('is-visible');
+    modalContainer.classList.add("is-visible");
 };
     
 function hideModal (){
-    modalContainer.classList.remove('is-visible');    
+    modalContainer.classList.remove("is-visible");    
 };
     
 window.addEventListener('keydown', (e) => {
-    if(e.key===ESC && modalContainer.classList.contains('is-visible')){
+    if(e.key===ESC && modalContainer.classList.contains("is-visible")){
         hideModal();
     }
 });
@@ -89,7 +96,7 @@ return pokemonList;
 
 function showDetails(pokemon) {
     loadDetails(pokemon).then(function(){
-    showModal(pokemon.name, pokemon.height);
+    showModal(pokemon.name, pokemon.height, pokemon.imageUrl);
 });
 }
 
