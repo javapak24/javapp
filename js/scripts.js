@@ -2,7 +2,7 @@
 let pokemonRepo = (function (){
 
 let pokemonList = [];
-let pokiLink = "https://pokeapi.co/api/v2/pokemon/?limit=15";
+let pokiLink = "https://pokeapi.co/api/v2/pokemon/?limit=100";
 
 let modalContainer = document.querySelector("#modal-container");
 modalContainer.classList.add("modal-container");
