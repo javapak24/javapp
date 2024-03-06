@@ -7,21 +7,11 @@ let pokiLink = "https://pokeapi.co/api/v2/pokemon/?limit=100";
 let modal = document.querySelector('.modal');
 
 function showModal (pokemon) {
-    let modalBody = document.querySelector('.modal-body');
-    let modalTitle = document.querySelector('.modal-title');
-    let modalHeader = document.querySelector('.modal-header');
 
-    modalTitle.empty();
-    modalBody.empty();
-
-    let nameElement = $("<h1>"+ pokemon.name + "</h1>");
-    let imageElement = $("<img class = 'modal-img' style ='width:50%'");
-    imageElement.attr("src", pokemon.imageUrl);
-    let heightElement = $("<h1>"+ "height: " + pokemon.height + "</h1>");
-
-    modalTitle.append(nameElement);
-    modalBody.append(imageElement);
-    modalBody.append(heightElement);
+    $(".modal-body").html(`<img class = 'modal-img' src = ${pokemon.imageUrl} style ='width:50%'> 
+    <p> height: ${pokemon.height}</p> `);    
+    $(".modal-title").html("<h1>"+ pokemon.name + "</h1>");
+  
 };
     
 function hideModal (){
@@ -34,7 +24,7 @@ window.addEventListener('keydown', (e) => {
     }
 });
     
-modalContainer.addEventListener('click', (e)=> {
+modal.addEventListener('click', (e)=> {
     let target = e.target;
     if(target===modal){
     hideModal()
@@ -82,7 +72,7 @@ return pokemonList;
 
 function showDetails(pokemon) {
     loadDetails(pokemon).then(function(){
-    showModal(pokemon.name, pokemon.height, pokemon.imageUrl);
+    showModal(pokemon);
 });
 }
 
