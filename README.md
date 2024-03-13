@@ -1,0 +1,1 @@
+This project uses a combination of JS, jQuery, HTML, CSS, and Bootstrap to provide the user a visual deck of pokemon cards. The details of these cards are fetched from an API and once the user clicks a pokemon's name, a modal appears with the pokemons details.
