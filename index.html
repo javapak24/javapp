@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple JS App</title>
+    <title>javApp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -17,12 +17,16 @@
       JAVAPP
     </a>
     <div class="col-md-6">
-      <form>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Search by Pokemon Name" aria-label="Search" aria-describedby="button-addon2">
-          <button class="btn btn-primary" type="submit" id="button-addon2">Go</button>
-        </div>
-      </form>
+        <form class="searchForm">
+          <label for="searchInput">Search: </label>
+          <input
+            type="text"
+            id="searchInput"
+            name="searchInput"
+            placeholder="Search by pokemon name"
+          />
+          <button type="submit" id="searchBtn">Search</button>
+        </form>
     </div>
 </nav>
 
@@ -41,7 +45,6 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>

@@ -9,7 +9,8 @@ let modal = document.querySelector('.modal');
 function showModal (pokemon) {
 
     $(".modal-body").html(`<img class = 'modal-img' src = ${pokemon.imageUrl} style ='width:50%'> 
-    <p> Height: ${pokemon.height}</p> `);    
+    <p> Height: ${pokemon.height}</p>
+    `);    
     $(".modal-title").html("<h1>"+ pokemon.name + "</h1>");
   
 };
@@ -110,4 +111,15 @@ pokemonRepo.loadList().then(function() {
     });
 });
 
-
+//Search for a pokemon
+document.querySelector(".searchForm").addEventListener("input", function (event) {
+    let pokemonList = document.querySelectorAll(".btn");
+    let searchInput = event.target.value.toLowerCase();
+    pokemonList.forEach(function (pokemon) {
+      if (pokemon.innerText.toLowerCase().indexOf(searchInput) > -1) {
+        pokemon.style.display = "";
+      } else {
+        pokemon.style.display = "none";
+      }
+    });
+  });
