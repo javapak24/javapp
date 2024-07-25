@@ -9,7 +9,7 @@ let modal = document.querySelector('.modal');
 function showModal (pokemon) {
 
     $(".modal-body").html(`<img class = 'modal-img' src = ${pokemon.imageUrl} style ='width:50%'> 
-    <p> height: ${pokemon.height}</p> `);    
+    <p> Height: ${pokemon.height}</p> `);    
     $(".modal-title").html("<h1>"+ pokemon.name + "</h1>");
   
 };
@@ -42,7 +42,7 @@ function loadList() {
     }).then(function (json){
         json.results.forEach(function (item){
             let pokemon = {
-                name : item.name,
+                name : item.name.charAt(0).toUpperCase() + item.name.slice(1),
                 detailsURL : item.url
             };
             add(pokemon);

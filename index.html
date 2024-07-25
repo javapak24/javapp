@@ -10,12 +10,22 @@
 
 <body>
 
+<div class="container">
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="index.html">
       <img src="img/4.svg" width="30" height="30" class="d-inline-block align-top img-fluid" alt="pokeball logo">
       JAVAPP
     </a>
+    <div class="col-md-6">
+      <form>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search by Pokemon Name" aria-label="Search" aria-describedby="button-addon2">
+          <button class="btn btn-primary" type="submit" id="button-addon2">Go</button>
+        </div>
+      </form>
+    </div>
 </nav>
+
     <ul class="pokemon-list list-group"></ul>
      
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -36,6 +46,7 @@
           </div>
         </div>
       </div>
+</div>
 
     <script src="js/promise-polyfill.js"></script>
     <script src="js/fetch.umd.js"></script>
