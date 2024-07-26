@@ -81,7 +81,14 @@ function addListItem(pokemon) {
     let pokiList = document.querySelector(".pokemon-list");
     let liPokemon = document.createElement("li");
     let pokemonButton = document.createElement("button");
+    let buttonImg = document.createElement("img");
+
     pokemonButton.innerText = pokemon.name;
+
+    buttonImg.src = pokemon.imageUrl;
+    
+    buttonImg.classList.add("button-image");
+
     pokemonButton.classList.add("btn");
     pokemonButton.setAttribute('data-target', '#exampleModal');
     pokemonButton.setAttribute('data-toggle','modal');
@@ -89,6 +96,8 @@ function addListItem(pokemon) {
     liPokemon.classList.add("list-group-item");
     liPokemon.appendChild(pokemonButton);
     pokiList.appendChild(liPokemon);
+    pokemonButton.appendChild(buttonImg);
+
     pokemonButton.addEventListener('click', () => {
         showDetails(pokemon);
     });
