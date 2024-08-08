@@ -78,15 +78,16 @@ function showDetails(pokemon) {
 }
 
 function addListItem(pokemon) {
+    console.log(pokemon);
     let pokiList = document.querySelector(".pokemon-list");
     let liPokemon = document.createElement("li");
     let pokemonButton = document.createElement("button");
     let buttonImg = document.createElement("img");
 
     pokemonButton.innerText = pokemon.name;
-
+ 
     buttonImg.src = pokemon.imageUrl;
-    
+
     buttonImg.classList.add("button-image");
 
     pokemonButton.classList.add("btn");
@@ -116,6 +117,7 @@ return {
 
 pokemonRepo.loadList().then(function() {
     pokemonRepo.getAll().forEach(function (pokemon){
+        console.log(pokemon)
         pokemonRepo.addListItem(pokemon);
     });
 });
